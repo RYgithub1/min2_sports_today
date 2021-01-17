@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:min2_sports_today/data/category_info.dart';
 import 'package:min2_sports_today/data/search_type.dart';
-import 'package:min2_sports_today/repository/news_repository.dart';
+import 'package:min2_sports_today/models/repository/news_repository.dart';
 
 
 
