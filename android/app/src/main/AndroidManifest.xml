@@ -2,7 +2,7 @@
     package="com.example.min2_sports_today">
    <application
         android:label="min2_sports_today"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
