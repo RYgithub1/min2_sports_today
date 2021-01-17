@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:min2_sports_today/screens/home_screen.dart';
 import 'package:min2_sports_today/style/style.dart';
+import 'package:min2_sports_today/views/screens/home_screen.dart';
 
 
 

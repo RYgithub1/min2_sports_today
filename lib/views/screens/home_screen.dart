@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:min2_sports_today/screens/pages/news_blog_page.dart';
-import 'package:min2_sports_today/screens/pages/news_favorite_page.dart';
-import 'package:min2_sports_today/screens/pages/news_list_page.dart';
+import 'package:min2_sports_today/views/screens/pages/news_blog_page.dart';
+import 'package:min2_sports_today/views/screens/pages/news_favorite_page.dart';
+import 'package:min2_sports_today/views/screens/pages/news_list_page.dart';
 
 
 
@@ -50,8 +50,6 @@ class _HomeScreenState extends State<HomeScreen> {
             });
           }
         ),
-
-        // floatingActionButton: FloatingActionButton(),
       ),
     );
   }
