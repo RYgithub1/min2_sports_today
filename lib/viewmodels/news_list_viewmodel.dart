@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:min2_sports_today/data/category_info.dart';
 import 'package:min2_sports_today/data/search_type.dart';
 import 'package:min2_sports_today/models/repository/news_repository.dart';
+import 'package:min2_sports_today/models/model/news_model.dart';   /// [Need to define]
 
 
 
@@ -29,6 +30,11 @@ class NewsListViewModel extends ChangeNotifier {
 
 
 
+  List<Article> _newsModelNewsArticles = [];
+  List<Article> get newsModelNewsArticles => _newsModelNewsArticles;
+
+
+
 
   /// [外注: View -> ViewModel]
   /// Future<void> getNews() async {   [引数付きに修正]
@@ -44,13 +50,19 @@ class NewsListViewModel extends ChangeNotifier {
     notifyListeners();
 
     /// [外注: ViewModel -> Repository]
-    await _newsRepository.getNewsRepository(searchType: _searchType, keyword: _keyword, category: _category);
-
+    // await _newsRepository.getNewsRepository(searchType: _searchType, keyword: _keyword, category: _category);
+    /// [List<Article>に代入することで、NotifyListeners()で自動通知]
+    _newsModelNewsArticles = await _newsRepository.getNewsRepository(searchType: _searchType, keyword: _keyword, category: _category);
 
     _isLoding = false;
     notifyListeners();
-
   }
 
 
+
+  @override
+  void dispose(){
+    _newsRepository.dispose();
+    super.dispose();
+  }
 }
