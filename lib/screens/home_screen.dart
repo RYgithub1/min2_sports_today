@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:min2_sports_today/screens/pages/news_blog_page.dart';
+import 'package:min2_sports_today/screens/pages/news_favorite_page.dart';
+import 'package:min2_sports_today/screens/pages/news_list_page.dart';
 
 
 
 class HomeScreen extends StatefulWidget {
   // HomeScreen({Key key}) : super(key: key);
-
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -12,18 +14,45 @@ class HomeScreen extends StatefulWidget {
 
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  int _currentIndex = 0;
+  final _bottomNavigationPages = [
+    NewsListPage(),
+    NewsFavoritePage(),
+    NewsBlogPage(),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(icon: Icon(Icons.menu), onPressed: (){print("comm: menu");}),
-        title: Text("SPORTS TODAY"),
-        centerTitle: true,
-        actions: [IconButton(icon: Icon(Icons.login), onPressed: (){print("comm: login");}),],
+    return SafeArea(
+      child: Scaffold(
+        appBar: new AppBar(
+          leading: new IconButton(icon: new Icon(Icons.menu), onPressed: (){print("comm: menu");}),
+          title: new Text("SPORTS TODAY"),
+          centerTitle: true,
+          actions: [new IconButton(icon: new Icon(Icons.login), onPressed: (){print("comm: login");}),],
+        ),
+
+        body: _bottomNavigationPages[_currentIndex],
+
+        bottomNavigationBar: new BottomNavigationBar(
+          currentIndex: _currentIndex,
+          items: <BottomNavigationBarItem>[
+            const BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            const BottomNavigationBarItem(icon: Icon(Icons.favorite), label: "Favorite"),
+            const BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Chat"),
+          ],
+          fixedColor: Colors.greenAccent,
+          /// [onTap: typedef ValueChanged<T> = void Function(T value);]
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          }
+        ),
+
+        // floatingActionButton: FloatingActionButton(),
       ),
-      body: Container(child: Text("test")),
-      // bottomNavigationBar: BottomNavigationBar(),
-      // floatingActionButton: FloatingActionButton(),
     );
   }
 }
