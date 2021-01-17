@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
           leading: new IconButton(icon: new Icon(Icons.menu), onPressed: (){print("comm: menu");}),
           title: new Text("SPORTS TODAY"),
           centerTitle: true,
-          actions: [new IconButton(icon: new Icon(Icons.login), onPressed: (){print("comm: login");}),],
+          actions: [new IconButton(icon: new Icon(Icons.login), onPressed: (){print("comm: login");})],
         ),
 
         body: _bottomNavigationPages[_currentIndex],

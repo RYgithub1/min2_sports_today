@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:min2_sports_today/style/style.dart';
+import 'package:min2_sports_today/viewmodels/news_list_viewmodel.dart';
 import 'package:min2_sports_today/views/screens/home_screen.dart';
+import 'package:provider/provider.dart';
 
 
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => NewsListViewModel(),
+      child: MyApp(),
+    ),
+  );
+}
 
 
 

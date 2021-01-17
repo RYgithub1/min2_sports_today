@@ -9,6 +9,7 @@ class SearchBar extends StatelessWidget {
 
   final TextEditingController _textEditingController = TextEditingController();
 
+
   /// [========= build() =========]
   @override
   Widget build(BuildContext context) {
