@@ -76,7 +76,7 @@ class NewsListPage extends StatelessWidget {
     await newsListViewModel.getNewsViewModel(
         searchTypeJyan: newsListViewModel.searchType,
         keywordJyan: newsListViewModel.keyword,
-        categoryJyan: newsListViewModel.category,
+        categoryJyan: newsListViewModel.category,     
     );
   }
 
@@ -92,23 +92,10 @@ class NewsListPage extends StatelessWidget {
     );
   }
 
-            
-  Future<void> getHeadLineNews(BuildContext context, keyword) async {
-    print("comm: getKeywordnews");
-    /// [外注: View -> ViewModel]
-    final newsListViewModel = Provider.of<NewsListViewModel>(context, listen: false);
-    await newsListViewModel.getNewsViewModel(
-        searchTypeJyan: SearchType.HEADLINE,
-        // keywordJyan: "(keyword)",
-        // categoryJyan: categoryInfos[5],
-    );
-  }
-
 
 
   _openArticleWebPage(articleGo, context) {
     print("comm: _openArticleWebPage ${articleGo.url}");
-
 
 
   }

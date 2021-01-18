@@ -22,7 +22,7 @@ class ArticleTile extends StatelessWidget {
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
       child: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(4),
         child: InkWell(
           onTap: () => onArticleClicked(article),
           child: Row(

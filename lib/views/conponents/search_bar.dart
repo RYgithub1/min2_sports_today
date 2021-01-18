@@ -13,12 +13,13 @@ class SearchBar extends StatelessWidget {
   /// [========= build() =========]
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+    return Container(
+      margin: const EdgeInsets.only(top: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Card(
         elevation: 2,
         shape: RoundedRectangleBorder(
-          borderRadius: const BorderRadius.all(const Radius.circular(16)),
+          borderRadius: const BorderRadius.vertical(bottom: Radius.circular(32)),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),

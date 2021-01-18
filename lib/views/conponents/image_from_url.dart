@@ -19,12 +19,9 @@ class ImageFromUrl extends StatelessWidget {
     if(imageUrl == null || imageUrl == "" || !isInvalidUrl) {
     /// [null.startsWith("http") -> error?]
     // if(imageUrl == null || imageUrl == "" ) {
-
-      // print("comm7: true: (imageUrl == null || imageUrl == "" || !isInvalidUrl)");
       return const Icon(Icons.no_cell);
 
     } else {
-      // print("comm8: false: (imageUrl == null || imageUrl == "" || !isInvalidUrl)");
       return CachedNetworkImage(
         imageUrl: imageUrl,
         placeholder: (context, url) => CircularProgressIndicator(),

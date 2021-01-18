@@ -26,17 +26,11 @@ class ArticleTileDesc extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          article.publishedDate,
-          style: textTheme.overline.copyWith(
-            fontStyle: FontStyle.italic,
-            fontFamily: RegularFont,
-          ),
-        ),
-        SizedBox(height: 4),
-        Text(
           displayDesc,
           style: textTheme.bodyText2.copyWith(
             fontWeight: FontWeight.bold,
+            fontStyle: FontStyle.italic,
+            fontFamily: BoldFont,
           ),
         ),
       ],
