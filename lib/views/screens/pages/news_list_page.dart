@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:min2_sports_today/data/category_info.dart';
 import 'package:min2_sports_today/data/search_type.dart';
 import 'package:min2_sports_today/viewmodels/news_list_viewmodel.dart';
+import 'package:min2_sports_today/views/conponents/article_tile.dart';
 import 'package:min2_sports_today/views/conponents/search_bar.dart';
 import 'package:provider/provider.dart';
 
@@ -13,6 +14,14 @@ class NewsListPage extends StatelessWidget {
   /// [========= build() ===========================]
   @override
   Widget build(BuildContext context) {
+
+    final _newsListViewModel = Provider.of<NewsListViewModel>(context, listen: false);
+    /// [画面開いた瞬間での条件文: ロードしてない&&記事がない]
+    if(!_newsListViewModel.isLoading && _newsListViewModel.newsModelNewsArticles.isEmpty) {
+      Future( () => _newsListViewModel.getNewsViewModel(searchTypeJyan: SearchType.HEADLINE) );
+    }
+
+
     return SafeArea(
       child: Scaffold(
         body: Column(
@@ -21,7 +30,27 @@ class NewsListPage extends StatelessWidget {
               /// [method -> get data -> SearchBar()CLASS -> pass with the data]
               onSearch: (keywordYade) => getKeywordNews(context, keywordYade),
             ),
-            // CircularProgressIndicator(),
+            // Expanded(child: Center(child: Text("news here"))),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: Consumer<NewsListViewModel>(
+                  builder: (context, newsListViewModelDade, child) {
+                    return newsListViewModelDade.isLoading
+                      ? Center(child: CircularProgressIndicator())
+                      : ListView.builder(
+                          itemCount: newsListViewModelDade.newsModelNewsArticles.length,
+                          itemBuilder: (context, int position) {
+                              return ArticleTile(
+                                article: newsListViewModelDade.newsModelNewsArticles[position],
+                                onArticleClicked: (articleGo) => _openArticleWebPage(articleGo, context),
+                              );
+                          },
+                      );
+                  },
+                ),
+              ),
+            ),
           ]
         ),
 
@@ -33,6 +62,7 @@ class NewsListPage extends StatelessWidget {
       ),
     );
   }
+
 
 
 
@@ -61,15 +91,25 @@ class NewsListPage extends StatelessWidget {
     );
   }
 
-
+            
   Future<void> getHeadLineNews(BuildContext context, keyword) async {
     print("comm: getKeywordnews");
     /// [外注: View -> ViewModel]
     final newsListViewModel = Provider.of<NewsListViewModel>(context, listen: false);
     await newsListViewModel.getNewsViewModel(
         searchTypeJyan: SearchType.HEADLINE,
-        categoryJyan: categoryInfos[5],
+        // keywordJyan: "(keyword)",
+        // categoryJyan: categoryInfos[5],
     );
+  }
+
+
+
+  _openArticleWebPage(articleGo, context) {
+    print("comm: _openArticleWebPage ${articleGo.url}");
+
+
+
   }
 
 }

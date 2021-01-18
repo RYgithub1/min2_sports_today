@@ -30,7 +30,7 @@ class NewsRepository {
 
     /// [データ取得/データの中身: ◯/◯, ◯/x, x/-]
     try {
-      switch(searchType) {      
+      switch(searchType) {
         case SearchType.HEADLINE:
             response = await _apiService.getHeadLineNewsApiService();
             break;
@@ -55,6 +55,12 @@ class NewsRepository {
         print("comm: finally");
     }
 
+
+    // print("comm: result: $result");
+    /// [Instance of 'Article' = インスタンスとして取得出来ているが、粒度が合っていない（配列や階層）]
+    // for (var i = 0; i < result.length; i++) {
+    //   print("comm: result: $result[i]");          
+    // }
     return result;
   }
 
