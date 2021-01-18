@@ -4,6 +4,7 @@ import 'package:min2_sports_today/style/style.dart';
 
 
 
+
 class ArticleTileDesc extends StatelessWidget {
 
   final Article article;
@@ -25,23 +26,17 @@ class ArticleTileDesc extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          article.title,
-          style: textTheme.subtitle1.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        SizedBox(height: 2),
-        Text(
           article.publishedDate,
           style: textTheme.overline.copyWith(
             fontStyle: FontStyle.italic,
+            fontFamily: RegularFont,
           ),
         ),
-        SizedBox(height: 2),
+        SizedBox(height: 4),
         Text(
           displayDesc,
           style: textTheme.bodyText2.copyWith(
-            fontFamily: RegularFont,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ],

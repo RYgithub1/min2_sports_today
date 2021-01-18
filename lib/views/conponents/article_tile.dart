@@ -16,22 +16,22 @@ class ArticleTile extends StatelessWidget {
   Widget build(BuildContext context) {
 
     print("comm6_v1_1: ArticleTile: ${article.title},  ${article.url}");
-    print("comm6_v1_2: ArticleTile: ${article.urlToImage}");   /// [null?]
+    print("comm6_v1_2: ArticleTile: ${article.urlToImage}");   /// [null]
 
     return Card(
       elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: InkWell(
           onTap: () => onArticleClicked(article),
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children:<Widget>[
               Expanded(
-                flex: 1,
+                flex: 2,
                 child: Container(
-                  padding: const EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(8),
                   child: ImageFromUrl(imageUrl: article.urlToImage),
                 ),
               ),
