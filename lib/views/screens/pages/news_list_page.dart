@@ -30,6 +30,7 @@ class NewsListPage extends StatelessWidget {
               /// [method -> get data -> SearchBar()CLASS -> pass with the data]
               onSearch: (keywordYade) => getKeywordNews(context, keywordYade),
             ),
+
             // Expanded(child: Center(child: Text("news here"))),
             Expanded(
               child: Padding(

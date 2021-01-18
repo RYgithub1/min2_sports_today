@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:min2_sports_today/models/model/news_model.dart';
+import 'package:min2_sports_today/views/conponents/article_tile_desc.dart';
+import 'package:min2_sports_today/views/conponents/image_from_url.dart';
 
 
 
@@ -12,6 +14,10 @@ class ArticleTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    print("comm6_v1_1: ArticleTile: ${article.title},  ${article.url}");
+    print("comm6_v1_2: ArticleTile: ${article.urlToImage}");   /// [null?]
+
     return Card(
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -19,21 +25,21 @@ class ArticleTile extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         child: InkWell(
           onTap: () => onArticleClicked(article),
-          child: Column(
+          child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children:<Widget>[
               Expanded(
-                flex: 3,
+                flex: 1,
                 child: Container(
                   padding: const EdgeInsets.all(12),
-                  child: Container(),
+                  child: ImageFromUrl(imageUrl: article.urlToImage),
                 ),
               ),
               Expanded(
-                flex: 1,
+                flex: 3,
                 child: Padding(
                   padding: const EdgeInsets.all(8),
-                  child: Container(),
+                  child: ArticleTileDesc(article: article),
                 ),
               ),
             ],
