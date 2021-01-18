@@ -4,7 +4,9 @@ import 'package:min2_sports_today/data/search_type.dart';
 import 'package:min2_sports_today/viewmodels/news_list_viewmodel.dart';
 import 'package:min2_sports_today/views/conponents/article_tile.dart';
 import 'package:min2_sports_today/views/conponents/search_bar.dart';
+import 'package:min2_sports_today/views/screens/webview_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:min2_sports_today/models/model/news_model.dart';
 
 
 
@@ -94,10 +96,13 @@ class NewsListPage extends StatelessWidget {
 
 
 
-  _openArticleWebPage(articleGo, context) {
+  void _openArticleWebPage(Article articleGo, BuildContext context) {
     print("comm: _openArticleWebPage ${articleGo.url}");
-
-
+    Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => WebviewScreen(article: articleGo),
+        ),
+    );
   }
 
 }
