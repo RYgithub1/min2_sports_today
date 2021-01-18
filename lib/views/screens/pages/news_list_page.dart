@@ -41,14 +41,17 @@ class NewsListPage extends StatelessWidget {
                   builder: (context, newsListViewModelDade, child) {
                     return newsListViewModelDade.isLoading
                       ? Center(child: CircularProgressIndicator())
-                      : ListView.builder(
-                          itemCount: newsListViewModelDade.newsModelNewsArticles.length,
-                          itemBuilder: (context, int position) {
-                              return ArticleTile(
-                                article: newsListViewModelDade.newsModelNewsArticles[position],
-                                onArticleClicked: (articleGo) => _openArticleWebPage(articleGo, context),
-                              );
-                          },
+                      : GridView.count(
+                          crossAxisCount: 2,
+                          children: List.generate(
+                              newsListViewModelDade.newsModelNewsArticles.length,
+                              (position) {
+                                  return ArticleTile(
+                                        article: newsListViewModelDade.newsModelNewsArticles[position],
+                                        onArticleClicked: (articleGo) => _openArticleWebPage(articleGo, context),
+                                  );
+                              },
+                          ),
                       );
                   },
                 ),

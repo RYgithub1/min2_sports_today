@@ -25,21 +25,25 @@ class ArticleTile extends StatelessWidget {
         padding: const EdgeInsets.all(4),
         child: InkWell(
           onTap: () => onArticleClicked(article),
-          child: Row(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children:<Widget>[
               Expanded(
-                flex: 2,
+                flex: 1,
                 child: Container(
-                  padding: const EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(4),
                   child: ImageFromUrl(imageUrl: article.urlToImage),
                 ),
               ),
               Expanded(
-                flex: 3,
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: ArticleTileDesc(article: article),
+                flex: 1,
+                child: SingleChildScrollView(
+                  child: Container(
+                    padding: const EdgeInsets.all(4),
+                    margin: const EdgeInsets.only(bottom: 8),
+                    child: ArticleTileDesc(article: article),
+                  ),
                 ),
               ),
             ],
