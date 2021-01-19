@@ -19,6 +19,11 @@ dependencies:
   json_serializable: ^3.5.1
   cached_network_image: ^2.5.0
   webview_flutter: ^1.0.7
+  moor: ^3.4.0
+  sqlite3_flutter_libs: ^0.3.0
+  path_provider:
+  path:
+
 
 
 dev_dependencies:
@@ -26,6 +31,7 @@ dev_dependencies:
     sdk: flutter
   build_runner: ^1.10.13
   chopper_generator: ^3.0.6
+  moor_generator: ^3.4.1
 
 
 flutter_icons:
