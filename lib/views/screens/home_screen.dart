@@ -27,10 +27,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: new AppBar(
-          leading: new IconButton(icon: new Icon(Icons.menu), onPressed: (){print("comm: menu");}),
+          leading: new IconButton(icon: new Icon(Icons.menu), onPressed: (){print("comm401: menu");}),
           title: new Text("SPORTS TODAY"),
           centerTitle: true,
-          actions: [new IconButton(icon: new Icon(Icons.login), onPressed: (){print("comm: login");})],
+          actions: [new IconButton(icon: new Icon(Icons.login), onPressed: (){print("comm402: login");})],
         ),
 
         body: _bottomNavigationPages[_currentIndex],

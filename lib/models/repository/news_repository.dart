@@ -21,7 +21,7 @@ class NewsRepository {
   /// [ ... 戻り値の型を設定 -> Repositoryから返してくる型がArticleのList]
 
   Future<List<Article>> getNewsRepository({@required SearchType searchType, String keyword, CategoryInfo category}) async {
-    print("comm: getNewsRepository");
+    print("comm101: getNewsRepository");
 
     List<Article> result = [];
 
@@ -42,7 +42,7 @@ class NewsRepository {
       if (response.isSuccessful){
         final responseBody = response.body;
         result = News.fromJson(responseBody).articles;
-        print("comm: ◯/◯");
+        print("comm102: ◯/◯");
 
         result = await insertAndReadFromDB(responseBody);
 
@@ -50,21 +50,21 @@ class NewsRepository {
       } else {
         final responseStatusCode = response.statusCode;
         final responseError = response.error;
-        print("comm: ◯/x");
-        print("comm: responseStatusCode: $responseStatusCode,  responseError: $responseError");
+        print("comm103: ◯/x");
+        print("comm104: responseStatusCode: $responseStatusCode,  responseError: $responseError");
       }
     } on Exception catch(err) {
-        print("comm: x/-");
-        print("comm: err: $err");
+        print("comm105: x/-");
+        print("comm106: err: $err");
     } finally {
-        print("comm: finally");
+        print("comm107: finally");
     }
 
 
-    // print("comm: result: $result");
+    // print("comm108: result: $result");
     /// [Instance of 'Article' = インスタンスとして取得出来ているが、粒度が合っていない（配列や階層）]
     // for (var i = 0; i < result.length; i++) {
-    //   print("comm: result: $result[i]");
+    //   print("comm109: result: $result[i]");
     // }
     return result;
   }

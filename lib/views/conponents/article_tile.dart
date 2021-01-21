@@ -15,8 +15,8 @@ class ArticleTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    print("comm6_v1_1: ArticleTile: ${article.title},  ${article.url}");
-    print("comm6_v1_2: ArticleTile: ${article.urlToImage}");   /// [null]
+    print("comm101: ArticleTile: ${article.title},  ${article.url}");
+    print("comm102: ArticleTile: ${article.urlToImage}");   /// [null]
 
     return Card(
       elevation: 2,

@@ -42,8 +42,8 @@ class NewsListViewModel extends ChangeNotifier {
   /// [外注: View -> ViewModel]
   /// Future<void> getNews() async {   [引数付きに修正]
   Future<void> getNewsViewModel({@required SearchType searchTypeJyan, String keywordJyan, CategoryInfo categoryJyan}) async {
-    print("comm: getNewsViewModel");
-    print("comm: getNewsViewModel_v1: $searchTypeJyan, $keywordJyan ");
+    print("comm201: getNewsViewModel");
+    print("comm202: getNewsViewModel_v1: $searchTypeJyan, $keywordJyan ");
 
     /// [定義格納しておけばrefreshの際に使える -> viewからpassしたarguを変数定義]
     _searchType = searchTypeJyan;
@@ -57,10 +57,10 @@ class NewsListViewModel extends ChangeNotifier {
     // await _newsRepository.getNewsRepository(searchType: _searchType, keyword: _keyword, category: _category);
     /// [List<Article>に代入することで、NotifyListeners()で自動通知]
     _newsModelNewsArticles = await _newsRepository.getNewsRepository(searchType: _searchType, keyword: _keyword, category: _category);
-    // print("comm: getNewsViewModel_v2: $_searchType, $_keyword, ${_category.categoryId}, ${_newsModelNewsArticles[0]}");
+    // print("comm203: getNewsViewModel_v2: $_searchType, $_keyword, ${_category.categoryId}, ${_newsModelNewsArticles[0]}");
     /// [Instance of 'Article' = インスタンスとして取得出来ているが、粒度が合っていない（配列や階層）]
-    // print("comm: getNewsViewModel_v2: $_searchType, $_keyword, ${_category.categoryId}(=sports)");
-    print("comm: getNewsViewModel_v3: ${_newsModelNewsArticles[0].title}, ${_newsModelNewsArticles[0].description}, ${_newsModelNewsArticles[0].url}");
+    // print("comm204: getNewsViewModel_v2: $_searchType, $_keyword, ${_category.categoryId}(=sports)");
+    print("comm205: getNewsViewModel_v3: ${_newsModelNewsArticles[0].title}, ${_newsModelNewsArticles[0].description}, ${_newsModelNewsArticles[0].url}");
 
     _isLoading = false;
     notifyListeners();
@@ -72,6 +72,6 @@ class NewsListViewModel extends ChangeNotifier {
   void dispose(){
     _newsRepository.dispose();
     super.dispose();
-    print("comm: NewsListViewModel: dispose");
+    print("comm206: NewsListViewModel: dispose");
   }
 }

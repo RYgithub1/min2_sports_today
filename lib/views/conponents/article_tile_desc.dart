@@ -22,18 +22,25 @@ class ArticleTileDesc extends StatelessWidget {
     }
 
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          displayDesc,
-          style: textTheme.bodyText2.copyWith(
-            fontWeight: FontWeight.bold,
-            fontStyle: FontStyle.italic,
-            fontFamily: BoldFont,
+    return displayDesc == ""
+    ? Column(
+        children: <Widget>[
+          SizedBox(height: 20),
+          const Icon(Icons.no_cell),
+        ]
+    )
+    : Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            displayDesc,
+            style: textTheme.bodyText2.copyWith(
+              fontWeight: FontWeight.bold,
+              fontStyle: FontStyle.italic,
+              fontFamily: BoldFont,
+            ),
           ),
-        ),
-      ],
+        ],
     );
   }
 }

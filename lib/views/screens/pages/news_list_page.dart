@@ -74,7 +74,7 @@ class NewsListPage extends StatelessWidget {
 
   /// [========= method() ===========================]
   Future<void> refleshEachTypeNews(BuildContext context) async {
-    print("comm: refleshEachTypeNews");
+    print("comm500: refleshEachTypeNews");
     /// [外注: View -> ViewModel]
     final newsListViewModel = Provider.of<NewsListViewModel>(context, listen: false);
     /// [ ... 押下時点での、NewsListViewModel/searchTypeをベースにリフレッシュ]
@@ -87,7 +87,7 @@ class NewsListPage extends StatelessWidget {
 
 
   Future<void> getKeywordNews(BuildContext context, keywordYade) async {
-    print("comm: getKeywordnews");
+    print("comm501: getKeywordnews");
     /// [外注: View -> ViewModel]
     final newsListViewModel = Provider.of<NewsListViewModel>(context, listen: false);
     await newsListViewModel.getNewsViewModel(
@@ -100,7 +100,7 @@ class NewsListPage extends StatelessWidget {
 
 
   void _openArticleWebPage(Article articleGo, BuildContext context) {
-    print("comm: _openArticleWebPage ${articleGo.url}");
+    print("comm502: _openArticleWebPage ${articleGo.url}");
     Navigator.of(context).push(
         MaterialPageRoute(
           builder: (context) => WebviewScreen(article: articleGo),
