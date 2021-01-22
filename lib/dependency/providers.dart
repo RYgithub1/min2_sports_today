@@ -49,7 +49,9 @@ List<SingleChildWidget> viewModels = [
       create: (context) => NewsListViewModel(
         //  Provider.of<NewsListViewModel>(context, listen: false),
         /// [NewsListViewModel({})でデータをpassしているのでnamed_parameterへconvert]
-        newsRepository: Provider.of<NewsListViewModel>(context, listen: false),
+        // newsRepository: Provider.of<NewsListViewModel>(context, listen: false),
+        /// [DI向けのnamedParaゆえ<TA>=<NewsRepository>]
+        newsRepository: Provider.of<NewsRepository>(context, listen: false),
       ),
     ),
 ];
