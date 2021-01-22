@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:min2_sports_today/dependency/providers.dart';
 import 'package:min2_sports_today/models/database/database.dart';
 import 'package:min2_sports_today/style/style.dart';
 import 'package:min2_sports_today/viewmodels/news_list_viewmodel.dart';
@@ -7,16 +8,23 @@ import 'package:provider/provider.dart';
 
 
 
-MyDatabase myDatabase;
+// MyDatabase myDatabase;
+/// [coz DI]
 
 
 
 void main() {
-  myDatabase = MyDatabase();   /// [インスタンス取得]
+  // myDatabase = MyDatabase();   /// [インスタンス取得]
+/// [coz DI]
 
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => NewsListViewModel(),
+    MultiProvider(
+      // providers: [
+      //   ChangeNotifierProvider(
+      //     create: (context) => NewsListViewModel(),
+      //   ),
+      // ],
+      providers: globalProviders,
       child: MyApp(),
     ),
   );

@@ -11,7 +11,11 @@ import 'package:min2_sports_today/models/model/news_model.dart';   /// [Need to 
 class NewsListViewModel extends ChangeNotifier {
 
   /// [外注: ViewModel -> Repository]
-  final NewsRepository _newsRepository = NewsRepository();
+  // final NewsRepository _newsRepository = NewsRepository();
+  /// [DI]
+  final NewsRepository _newsRepository;
+  /// [初期化コンストラクタ/7(DI)]
+  NewsListViewModel({newsRepository}) : _newsRepository = newsRepository;
 
 
 

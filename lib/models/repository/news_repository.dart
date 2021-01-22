@@ -20,7 +20,7 @@ class NewsRepository {
   /// [初期化リスト]
   NewsRepository({dao, apiService})
       : _apiService = apiService,
-        _dao = dao;
+        _dao        = dao;
 
 
 
