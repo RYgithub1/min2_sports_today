@@ -6,13 +6,21 @@ import 'package:min2_sports_today/main.dart';
 import 'package:min2_sports_today/models/api/api_service.dart';
 import 'package:min2_sports_today/models/model/news_model.dart';   /// [Need to define]
 import 'package:min2_sports_today/util/extensions.dart';
+import 'package:min2_sports_today/models/database/dao.dart';   /// [tegaki]
 
 
 
 class NewsRepository {
 
   /// [外注: ViewModel -> Repository]
-  final ApiService _apiService = ApiService.create();
+  // final ApiService _apiService = ApiService.create();
+  /// [--- DI ---]
+  final ApiService _apiService ;
+  final NewsDao _dao;
+  /// [初期化リスト]
+  NewsRepository({dao, apiService})
+      : _apiService = apiService,
+        _dao = dao;
 
 
 
@@ -80,13 +88,17 @@ class NewsRepository {
 
   Future<List<Article>> insertAndReadFromDB(responseBody) async {
     /// [database使うのでクラスからインスタンス作成して呼び込む]
-    final dao = myDatabase.newsDao;   /// [トップレベルプロパティで宣言したのをimport必要]
+    /// final dao = myDatabase.newsDao;   /// [トップレベルプロパティで宣言したのをimport必要] -> [DIゆえ不要]
+
+
     /// final articles = News.fromJson(responseBody);   /// [返ってきたデータをXXX.fromJson()]
     final articles = News.fromJson(responseBody).articles;   /// [返ってきたデータをXXX.fromJson() -> articlesのみ欲しい]
 
 
     /// [(変換 ): Webから取得した記事リスト(Dartモデルクラス: Article)を、DBのテーブルクラスに変換してから、DB登録]
-    final articleRecords = await dao.insertAndReadNeawsFromDB(
+    // final articleRecords = await dao.insertAndReadNeawsFromDB(
+    ///  [DIゆえ変更: dao -> _dao]
+    final articleRecords = await _dao.insertAndReadNeawsFromDB(
       articles.toArticleRecords(articles),
     );
     /// [(逆変換): DBから取得したデータを、モデルクラスに再変換して返す = dartの拡張メソッド]
